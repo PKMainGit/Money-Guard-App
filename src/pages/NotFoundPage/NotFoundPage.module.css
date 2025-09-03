@@ -1,0 +1,106 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../../assets/img/login-tablet.png");
+  background-color: #000000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+
+.notFound {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 100px;
+  color: var(--white);
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--white);
+}
+
+.multiColorButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  border-radius: 20px;
+  width: 280px;
+  height: 50px;
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  transition: all 1s ease 0s;
+}
+
+.multiColorButton:hover,
+.multiColorButton:focus {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    to right,
+    #7000ff 0%,
+    #9e40ba 31%,
+    #ffc727 100%
+  );
+  background-size: 200%;
+  background-position: right center;
+}
+
+.multiColorButton:active {
+  transform: scale(1.08);
+  font-size: 19px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    background-image: url("../../assets/img/login-tablet.png");
+  }
+
+  .wrapper {
+    gap: 66px;
+  }
+
+  .notFound {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 120px;
+    color: var(--white);
+  }
+
+  .text {
+    font-size: 30px;
+  }
+
+  .multiColorButton {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    background-image: url("../../assets/img/login-desktop.png");
+  }
+}

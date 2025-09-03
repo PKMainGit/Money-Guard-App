@@ -1,0 +1,10 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-image: url("../../assets/img/Gradient2.png"),
+    url("../../assets/img/Gradient.png");
+  background-position: center center, center center;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+}

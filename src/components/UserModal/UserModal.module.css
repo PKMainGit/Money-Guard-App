@@ -1,0 +1,243 @@
+
+
+.modal {
+  position: absolute;
+  padding: 28px 20px;
+  width: 100%;
+  height: 100vh;
+  z-index: 1500;
+  background: linear-gradient(
+    0deg,
+    rgba(83, 61, 186, 1) 0%,
+    rgba(80, 48, 154, 1) 43.14%,
+    rgba(106, 70, 165, 1) 73.27%,
+    rgba(133, 93, 175, 1) 120.03%
+  );
+  box-shadow: 0px 4px 60px 0px #faf5f540;
+  backdrop-filter: blur(50px);
+  overflow: hidden;
+  
+}
+
+.closeBtn {
+  all: unset;
+  background-color: inherit;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 83px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+.iconPlus {
+  fill: #161616;
+  stroke: #161616;
+  width: 10px;
+  height: 10px;
+}
+.plusIcon {
+  border: #ffc727;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(
+    167deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 73px;
+  left: 32px;
+  transition: all 1s ease 0s;
+}
+.plusIcon:hover,
+.plusIcon:focus {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    to right,
+    #7000ff 0%,
+    #9e40ba 31%,
+    #ffc727 100%
+  );
+  background-size: 200%;
+  background-position: right center;
+}
+
+.avatarLabel {
+  width: 96px;
+  margin-bottom: 75px;
+  position: relative;
+  cursor: pointer;
+}
+.labelBox {
+  margin-bottom: 80px;
+  width: 100%;
+}
+.input {
+  width: 100%;
+  padding: 8px 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+.errorInput {
+  border-bottom: 1px solid red;
+  color: red;
+}
+
+.error {
+  position: absolute;
+    padding-top: 8px;
+    margin-left: 18px;
+    color: red;
+    font-size: 12px;
+  }
+
+.saveBtn {
+  width: 100%;
+  border-radius: 20px;
+  height: 50px;
+  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    167deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+  color: white;
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--white);
+  transition: all 1s ease 0s;
+}
+.saveBtn:disabled {
+  opacity: 0.5;
+}
+
+.saveBtn:hover,
+.saveBtn:focus {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    to right,
+    #7000ff 0%,
+    #9e40ba 31%,
+    #ffc727 100%
+  );
+  background-size: 200%;
+  background-position: right center;
+}
+
+/* @media screen and (min-width: 361px) and (max-width: 767px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(7px);
+    background: rgba(34, 13, 91, 0.23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .iconClose {
+    stroke: #fff;
+    background-color: inherit;
+    width: 18px;
+    height: 18px;
+  }
+} */
+
+@media screen and (min-width: 768px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(7px);
+    background: rgba(34, 13, 91, 0.23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .iconClose {
+    stroke: #fff;
+    background-color: inherit;
+    width: 18px;
+    height: 18px;
+  }
+  .modal {
+    border-radius: 8px;
+    width: 540px;
+    height: 421px;
+    box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+    padding: 41px 80px;
+  }
+
+  .text {
+    font-size: 30px;
+    margin-bottom: 24px;
+  }
+
+  .avatarLabel {
+    width: 68px;
+    margin-bottom: 30px;
+  }
+
+  .plusIcon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    top: 55px;
+    left: 22px;
+  }
+
+  .labelBox {
+    margin-bottom: 57px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .modal {
+    border-radius: 8px;
+    width: 540px;
+    height: 390px;
+  }
+  .labelBox {
+    margin-bottom: 49px;
+  }
+}

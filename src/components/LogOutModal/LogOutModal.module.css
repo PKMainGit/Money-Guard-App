@@ -1,0 +1,103 @@
+.modalContent {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  padding: 239px 20px;
+  background: linear-gradient(
+    0deg,
+    rgba(83, 61, 186, 1) 0%,
+    rgba(80, 48, 154, 1) 43.14%,
+    rgba(106, 70, 165, 1) 73.27%,
+    rgba(133, 93, 175, 1) 120.03%
+  );
+  z-index: 150;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.iconBox {
+  display: none;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: center;
+  width: 240px;
+  font-family: "Poppins", sans-serif;
+}
+
+.iconLogo {
+  width: 36px;
+  height: 36px;
+}
+
+.text {
+  text-align: center;
+  width: 214px;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(7px);
+    background: rgba(34, 13, 91, 0.23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .modalContent {
+    width: 553px;
+    height: 447px;
+    padding: 60px 116px;
+    z-index: 150;
+    overflow: auto;
+    justify-items: center;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+    background-image: url("../../assets/img/bg-modal.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    background-color: var(--form-color);
+    border-radius: 8px;
+  }
+
+  .iconBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 52px;
+  }
+
+  .title {
+    font-weight: 400;
+    font-size: 26px;
+  }
+
+  .text {
+    width: 299px;
+  }
+}

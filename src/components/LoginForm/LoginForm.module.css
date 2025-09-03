@@ -1,0 +1,268 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-image: url("../../assets/img/login-tablet.png");
+  background-color: #000000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.form {
+  height: 568px;
+  min-width: 320px;
+  max-width: 368px;
+  padding: 97px 20px 98px 20px;
+  backdrop-filter: blur(100px);
+  box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+  background-image: url("../../assets/img/mobile-bg-2x.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.iconBox {
+  margin-bottom: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconLogo {
+  width: 27px;
+  height: 26px;
+}
+
+.title {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  color: #fbfbfb;
+}
+.formik {
+  position: relative;
+}
+.forgotBtn {
+  all: unset;
+  position: absolute;
+  right:20px;
+  bottom: 230px;
+  border: none;
+  background-color: transparent;
+  color: var(--white-600);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.iconWrapper {
+  margin-right: 19.5px;
+  padding-bottom: 5px;
+  padding-left: 11px;
+  padding-top: 5px;
+}
+.icon {
+  color: var(--white-600);
+}
+.iconLogo {
+  width: 24px;
+  height: 24px;
+}
+.logoThumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+  padding-right: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 5px;
+  border: none;
+
+  background-color: transparent;
+  color: var(--white-600);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+.field::placeholder {
+  color: var(--white-600);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+.eyeButton {
+  position: absolute;
+  right: 10px;
+  fill: rgba(255, 255, 255, 0.4);
+  width: 24px;
+  height: 24px;
+  margin-bottom: 8px;
+}
+
+.buttonBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.button_reg {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  background: #fcfcfc;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease 0s;
+}
+.button_log {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    167deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button_log:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    to right,
+    #7000ff 0%,
+    #9e40ba 31%,
+    #ffc727 100%
+  );
+  background-size: 200%;
+  background-position: right center;
+}
+
+.button_reg:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 0%,
+    rgb(98, 63, 139) 31%,
+    rgb(255, 255, 255) 100%
+  );
+  background-size: 200%;
+  background-position: right center;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  top: 38px;
+  left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    min-width: 533px;
+    height: 570px;
+    border-radius: 8px;
+
+    background-image: url("../../assets/img/Ellipse19.png");
+    background-color: var(--form-color);
+    background-blend-mode: overlay;
+    background-position: center;
+    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(50px);
+    padding: 80px 62px;
+  }
+
+  .forgotBtn {
+    right:70px;
+  bottom: 230px;
+  }
+
+  .inputs {
+    margin-bottom: 62px;
+  }
+  .iconLogo {
+    width: 36px;
+    height: 36px;
+  }
+  .buttonBox {
+    justify-items: center;
+  }
+  .button_log {
+    width: 300px;
+  }
+  .button_reg {
+    width: 300px;
+  }
+  .title {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    background-image: url("../../assets/img/login-desktop.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .form {
+    max-width: 533px;
+    height: 570px;
+    padding: 80px 62px;
+  }
+}

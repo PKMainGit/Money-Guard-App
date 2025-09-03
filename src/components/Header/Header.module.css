@@ -1,0 +1,113 @@
+.header {
+  width: 100%;
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.25),
+    inset 0 -3px 2px 0 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
+}
+
+.container {
+  display: flex;
+  padding: 12px 22px;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.7px;
+  color: var(--white);
+  margin: 0;
+}
+.iconLogo {
+  width: 17px;
+  height: 17px;
+}
+
+.authMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  cursor: pointer;
+}
+
+.exit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exit:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+.exitIcon {
+  font-size: 24px;
+  color: var(--white-600);
+}
+.avatar {
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(3);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate {
+  opacity: 1;
+  transform: scale(1);
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 16px 32px;
+  }
+  .content {
+    max-width: 768px;
+  }
+  .line {
+    height: 30px;
+    width: 1px;
+    background-color: var(--white-600);
+  }
+  .authMenu {
+    gap: 12px;
+  }
+  .exit {
+    gap: 8px;
+  }
+  .exitText {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--white-600);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    padding: 16px 16px;
+    margin: auto;
+  }
+
+  .content {
+    max-width: 1280px;
+  }
+}

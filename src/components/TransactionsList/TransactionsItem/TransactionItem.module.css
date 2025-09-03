@@ -1,0 +1,238 @@
+.transactionListContainer {
+  /* background-color: rgba(42, 67, 108, 0.282); */
+  width: 280px;
+  height: 293px;
+  margin-bottom: 8px;
+}
+
+.transactionList {
+  padding: 0 20px;
+  border-radius: 10px;
+  border-left-style: solid;
+  border-left-width: 5px;
+  border-left-color: #ff868d;
+  background-color: var(--form-color);
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.listItem:last-child {
+  border: 0;
+}
+
+.headerTextMobile {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.item {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: right;
+  color: var(--white);
+}
+
+button {
+  width: 69px;
+  height: 29px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    167deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+
+  letter-spacing: 0.1em;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+}
+
+.deleteEdit {
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.expenseTextColor {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
+  color: var(--dashboard-text);
+}
+
+.incomeTextColor {
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
+  color: var(--yellow);
+}
+
+.incomeBorderColor {
+  border-left-color: var(--yellow);
+}
+
+/* @media screen and (min-width: 768px) {
+  .transactionListContainer {
+    background-color: rgba(11, 88, 212, 0.282);
+    width: 704px;
+    height: fit-content;
+    max-height: 150px;
+    border-radius: 0;
+    border: 0;
+    margin: 0;
+  }
+
+  .transactionList {
+    border-bottom: 2px solid;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px 16px 20px;
+    margin: 0;
+  }
+  .listItem {
+    display: inline-block;
+    width: calc(100% / 6);
+    border: 0;
+    padding: 0;
+  }
+} */
+
+@media screen and (min-width: 768px) {
+  .transactionListContainer {
+    width: 100%;
+    height: fit-content;
+    border-radius: 0;
+    border: 0;
+    margin: 0;
+  }
+
+  .transactionList {
+    background: inherit;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 13px 20px;
+    margin: 0;
+    overflow: auto;
+  }
+
+  .listItem {
+    display: flex;
+    width: calc(100% / 6);
+    border: 0;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .listItem:nth-child(2) {
+    flex: 1;
+  }
+
+  .listItem:nth-last-child(2) {
+    justify-content: flex-end;
+    margin-right: 25px;
+    flex: 1;
+  }
+
+  .item {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .headerTextMobile {
+    display: none;
+  }
+
+  .tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  .edit:hover .tooltip {
+    visibility: visible;
+  }
+
+  .editSpan {
+    display: none;
+  }
+
+  .deleteEdit {
+    width: calc(100% / 6);
+    border: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .headerTextMobile {
+    display: none;
+  }
+
+  .editSpan {
+    display: none;
+  }
+
+  .deleteEdit {
+    display: inline-block;
+    width: calc(100% / 6);
+    border: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,134 @@
+.preloader {
+  background: linear-gradient(180deg, #1c1132, #100922);
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader-txt {
+  font-family: var(--font-family);
+  font-weight: 600;
+  line-height: 1.56;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #734aef;
+  background: none;
+  margin: 0 auto;
+  filter: drop-shadow(0 3px 10px 0 rgba(74, 86, 226, 0.5));
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.space {
+  display: inline-block;
+  width: 0px;
+}
+
+@media (min-width: 768px) {
+  .space {
+    width: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .space {
+    width: 60px;
+  }
+}
+
+.letter {
+  position: relative;
+  opacity: 0;
+  display: inline-block;
+  font-size: inherit;
+  animation: fadeIn 0.6s forwards;
+  transform-origin: center bottom;
+
+  background: linear-gradient(
+    90deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.letter::after {
+  content: attr(data-char);
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(6px);
+  opacity: 0.8;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.loader {
+  margin: 0 auto;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+.loader::after {
+  content: "";
+  width: 2px;
+  height: 2px;
+  background: currentColor;
+  position: absolute;
+  bottom: 1px;
+  right: -5px;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 10px 0 rgba(255, 255, 255, 0), 20px 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 10px 0 white, 20px 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 10px 0 white, 20px 0 white;
+  }
+}

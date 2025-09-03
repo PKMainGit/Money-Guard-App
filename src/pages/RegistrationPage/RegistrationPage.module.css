@@ -1,0 +1,77 @@
+.page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #101010;
+  background-image: radial-gradient(
+      circle at calc(50% - 312px) calc(50% - 300px),
+      rgba(47, 21, 176, 0.73) 1px,
+      transparent 454px
+    ),
+    radial-gradient(
+      circle at calc(50% + 450px) calc(50% - 280px),
+      rgba(101, 35, 146, 0.73) 1px,
+      transparent 654px
+    ),
+    radial-gradient(
+      circle at calc(50% - 374px) calc(50% + 360px),
+      rgba(109, 84, 235, 0.73) 1px,
+      transparent 707px
+    ),
+    radial-gradient(
+      circle at calc(50% - 600px) calc(50% + 320px),
+      rgba(142, 46, 121, 0.73) 1px,
+      transparent 250px
+    ),
+    radial-gradient(
+      circle at calc(50% - 575px) calc(50% - 250px),
+      rgba(48, 46, 142, 0.73) 1px,
+      transparent 369px
+    ),
+    radial-gradient(
+      circle at calc(50% + 550px) calc(50% + 210px),
+      rgba(109, 28, 119, 0.73) 1px,
+      transparent 315px
+    ),
+    url(../../assets/img/bg_tablet.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (min-width: 1280px) {
+  .page {
+    background-image: radial-gradient(
+        circle at calc(50% - 312px) calc(50% - 300px),
+        rgba(47, 21, 176, 0.73) 1px,
+        transparent 454px
+      ),
+      radial-gradient(
+        circle at calc(50% + 450px) calc(50% - 280px),
+        rgba(101, 35, 146, 0.73) 1px,
+        transparent 654px
+      ),
+      radial-gradient(
+        circle at calc(50% - 374px) calc(50% + 360px),
+        rgba(109, 84, 235, 0.73) 1px,
+        transparent 707px
+      ),
+      radial-gradient(
+        circle at calc(50% - 600px) calc(50% + 320px),
+        rgba(142, 46, 121, 0.73) 1px,
+        transparent 250px
+      ),
+      radial-gradient(
+        circle at calc(50% - 575px) calc(50% - 250px),
+        rgba(48, 46, 142, 0.73) 1px,
+        transparent 369px
+      ),
+      radial-gradient(
+        circle at calc(50% + 550px) calc(50% + 210px),
+        rgba(109, 28, 119, 0.73) 1px,
+        transparent 315px
+      ),
+      url(../../assets/img/bg_desktop.jpg);
+  }
+}

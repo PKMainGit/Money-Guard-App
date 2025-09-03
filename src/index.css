@@ -1,0 +1,105 @@
+@import "modern-normalize/modern-normalize.css";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+:root {
+  --font-family: "Poppins", sans-serif;
+  --second-family: "Circe", sans-serif;
+
+  --yellow: #ffb627;
+  --icon-violet: #734aef;
+  --white: #fbfbfb;
+  --white-400: rgba(255, 255, 255, 0.4);
+  --white-600: rgba(255, 255, 255, 0.6);
+  --text-button: #623f8b;
+  --dashboard-text: #ff868d;
+  --form-color: rgba(255, 255, 255, 0.1);
+  --button-gradient: linear-gradient(
+    167deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px transparent inset;
+  -webkit-text-fill-color: var(--white-400);
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--white-600);
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.container {
+  min-width: 320px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
