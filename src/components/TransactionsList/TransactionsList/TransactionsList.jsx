@@ -10,13 +10,9 @@ import { fetchTransactions } from "../../../redux/transactions/operations";
 import TransactionItem from "../TransactionsItem/TransactionItem";
 import Loader from "../../Loader/Loader";
 
-
-
-
 const TransactionList = () => {
   const dispatch = useDispatch();
   
-
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
@@ -40,9 +36,9 @@ const TransactionList = () => {
         {transactions.length > 0 ? (
           transactions.map((item) => {
             return (
-              <li key={item._id}>
+              <li key={item.id}>
                 <TransactionItem
-                   id={item._id}
+                   id={item.id}
                   category={item.category}
                   date={item.date}
                   sum={item.sum}

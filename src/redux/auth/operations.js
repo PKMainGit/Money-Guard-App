@@ -3,7 +3,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
 export const moneyGuardAPI = axios.create({
-  baseURL: "https://server-money-guard-teamproject.onrender.com/",
+  // baseURL: "https://server-money-guard-teamproject.onrender.com/",
+  baseURL: "http://localhost:3000/",
   withCredentials: true,
 });
 

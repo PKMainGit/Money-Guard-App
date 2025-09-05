@@ -12,7 +12,7 @@ const Balance = () => {
   const dispatch = useDispatch();
   const balance = useSelector(selectTotalBalance) ?? 0;
   const currencyData = useSelector(selectCurrencyData);
-  const { isMobile } = useMedia();
+	const { isMobile } = useMedia();
 
   const usdRateBuy = currencyData?.usd?.buy;
   const euroRateBuy = currencyData?.euro?.buy;
