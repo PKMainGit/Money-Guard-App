@@ -106,18 +106,18 @@ export const editUserAvatar = createAsyncThunk(
 
       const { data } = await moneyGuardAPI.patch(
         "/users/current/avatar",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+        formData
       );
-      refreshUserThunk();
+
+      await thunkAPI.dispatch(refreshUserThunk());
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
 
 export const getTotalBalanceThunk = createAsyncThunk(
   "balance/get",
