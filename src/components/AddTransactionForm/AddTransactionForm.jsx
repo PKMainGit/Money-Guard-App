@@ -95,8 +95,7 @@ function AddTransactionForm() {
       sum: Math.abs(data.sum),
       date: formattedDate,
       comment: data.comment,
-      // category: data.category,
-      category: isChecked ? data.category : "Income",
+      category: data.category,
       type: isChecked ? "EXPENSE" : "INCOME",
     };
     try {
@@ -156,48 +155,55 @@ function AddTransactionForm() {
             Expense
           </span>
         </div>
-        {isChecked && (
-          <div className={s.comment}>
-            <Select
-              classNamePrefix="react-select"
-              styles={customStyles}
-              className={s.select_form}
-              value={selectedOption}
-              onChange={setSelectedOption}
-              options={categoryOptions}
-              placeholder="Select a category"
-              onMenuOpen={() => setMenuIsOpen(true)}
-              onMenuClose={() => setMenuIsOpen(false)}
-              components={{
-                DropdownIndicator: () =>
-                  menuIsOpen ? (
-                    <GoChevronUp
-                      className={s.iconSelect}
-                      style={{ fontSize: "20px", color: "white" }}
-                    />
-                  ) : (
-                    <GoChevronDown
-                      className={s.iconSelect}
-                      style={{ fontSize: "20px", color: "white" }}
-                    />
-                  ),
-              }}
-            />
-          </div>
-        )}
-        <div className={s.sum_data_wrap}>
-            <div className={s.sum_wrap}>
-              <input
-                {...register("sum")}
-                type="number"
-                autoComplete="off"
-                placeholder="0.00"
-                className={s.sum}
+        <div className={s.comment}>
+          <Controller
+            name="category"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                value={
+                  categoryOptions.find(
+                    (option) => option.value === field.value
+                  ) || null
+                }
+                onChange={(option) => field.onChange(option?.value || "")}
+                options={categoryOptions}
+                placeholder="Select a category"
+                styles={customStyles}
+                classNamePrefix="react-select"
+                className={s.select_form}
+                menuIsOpen={menuIsOpen}
+                onMenuOpen={() => setMenuIsOpen(true)}
+                onMenuClose={() => setMenuIsOpen(false)}
+                components={{
+                  DropdownIndicator: () =>
+                    menuIsOpen ? (
+                      <GoChevronUp className={s.iconSelect} />
+                    ) : (
+                      <GoChevronDown className={s.iconSelect} />
+                    ),
+                }}
               />
-              {errors.sum && (
-                <span className={s.comment_err}>{errors.sum.message}</span>
-              )}
-            </div>
+            )}
+          />
+          {errors.category && (
+            <span className={s.comment_err}>{errors.category.message}</span>
+          )}
+        </div>
+        <div className={s.sum_data_wrap}>
+          <div className={s.sum_wrap}>
+            <input
+              {...register("sum")}
+              type="number"
+              autoComplete="off"
+              placeholder="0.00"
+              className={s.sum}
+            />
+            {errors.sum && (
+              <span className={s.comment_err}>{errors.sum.message}</span>
+            )}
+          </div>
           <div
             className={s.data_wrap}
             onClick={() => datePickerRef.current?.setFocus()}

@@ -23,7 +23,7 @@ export default function EditTransactionForm() {
   const dispatch = useDispatch();
   const transactionId = useSelector(selectIsEditID);
   const transactions = useSelector(selectTransactions);
-  const transaction = transactions.find((item) => item._id === transactionId);
+  const transaction = transactions.find((item) => item.id === transactionId);
   const categories = useSelector(selectCategories);
   const categoryOptions = useMemo(
     () =>
@@ -86,50 +86,19 @@ export default function EditTransactionForm() {
   });
   useEffect(() => {
     if (transaction && categoryOptions.length > 0) {
-      // Лог: выводим дату транзакции
-      console.log("Дата транзакции:", transaction.date);
-
-      // Парсим дату
       const parsedDate = parse(transaction.date, "dd-MM-yyyy", new Date());
-
-      // Лог: выводим результат парсинга
-      console.log("Результат парсинга:", parsedDate);
-
-      // Проверяем, является ли дата валидной
       const isValidDate = !isNaN(parsedDate) && parsedDate instanceof Date;
-
-      // Лог: выводим статус валидности даты
-      console.log("Дата валидна:", isValidDate);
-
-      // Находим категорию, соответствующую транзакции
       const matchedCategory = categoryOptions.find(
         (opt) => opt.value === transaction.category
       );
-
-      // Лог: выводим найденную категорию
-      console.log("Найденная категория:", matchedCategory);
-
-      // Переопределяем состояние с новыми данными
       reset({
-        date: isValidDate ? format(parsedDate, "dd-MM-yyyy") : "", // Если дата валидна, форматируем, иначе передаем пустую строку
-        type: transaction.type,
-        category: matchedCategory || null, // Используем объект категории, если он найден
-        comment: transaction.comment || "",
-        sum: Math.abs(transaction.sum),
-      });
-
-      // Лог: выводим состояние после reset
-      console.log("Состояние после reset:", {
         date: isValidDate ? format(parsedDate, "dd-MM-yyyy") : "",
         type: transaction.type,
         category: matchedCategory || null,
         comment: transaction.comment || "",
         sum: Math.abs(transaction.sum),
       });
-
-      // Лог: проверяем состояние isChecked
       setIsChecked(transaction.type === "EXPENSE");
-      console.log("isChecked:", transaction.type === "EXPENSE");
     }
   }, [transaction, categoryOptions, reset]);
 
@@ -146,12 +115,12 @@ export default function EditTransactionForm() {
     setValue("type", newType);
   };
   const onSubmit = (data) => {
-    if (!transaction) return;
+		if (!transaction) return;
     const updatedTransaction = {
       ...data,
       category: data.category?.value || "",
       sum: Math.abs(data.sum),
-    };
+		};
     dispatch(
       editTransaction({ id: transactionId, transaction: updatedTransaction })
     );
@@ -197,39 +166,37 @@ export default function EditTransactionForm() {
             Expense
           </div>
         </div>
-        {isChecked && (
-          <div className={s.comment}>
-            <Controller
-              name="category"
-              control={control}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  value={field.value}
-                  options={categoryOptions}
-                  placeholder="Select a category"
-                  styles={customStyles}
-                  classNamePrefix="react-select"
-                  className={s.select_form}
-                  menuIsOpen={menuIsOpen}
-                  onMenuOpen={() => setMenuIsOpen(true)}
-                  onMenuClose={() => setMenuIsOpen(false)}
-                  components={{
-                    DropdownIndicator: () =>
-                      menuIsOpen ? (
-                        <GoChevronUp className={s.iconSelect} />
-                      ) : (
-                        <GoChevronDown className={s.iconSelect} />
-                      ),
-                  }}
-                />
-              )}
-            />
-            {errors.category && (
-              <span className={s.comment_err}>{errors.category.message}</span>
+        <div className={s.comment}>
+          <Controller
+            name="category"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                value={field.value}
+                options={categoryOptions}
+                placeholder="Select a category"
+                styles={customStyles}
+                classNamePrefix="react-select"
+                className={s.select_form}
+                menuIsOpen={menuIsOpen}
+                onMenuOpen={() => setMenuIsOpen(true)}
+                onMenuClose={() => setMenuIsOpen(false)}
+                components={{
+                  DropdownIndicator: () =>
+                    menuIsOpen ? (
+                      <GoChevronUp className={s.iconSelect} />
+                    ) : (
+                      <GoChevronDown className={s.iconSelect} />
+                    ),
+                }}
+              />
             )}
-          </div>
-        )}
+          />
+          {errors.category && (
+            <span className={s.comment_err}>{errors.category.message}</span>
+          )}
+        </div>
         <div className={s.sum_data_wrap}>
           <div className={s.sum_wrap}>
             <input

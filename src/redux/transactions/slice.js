@@ -27,7 +27,7 @@ const transactionsSlice = createSlice({
       })
       .addCase(editTransaction.fulfilled, (state, action) => {
         state.transactions = state.transactions.map((transaction) =>
-          transaction._id === action.payload.data._id
+          transaction.id === action.payload.data.id
             ? action.payload.data
             : transaction
         );
@@ -35,7 +35,7 @@ const transactionsSlice = createSlice({
       })
       .addCase(deleteTransaction.fulfilled, (state, action) => {
         state.transactions = state.transactions.filter(
-          (transaction) => transaction._id !== action.payload
+          (transaction) => transaction.id !== action.payload
         );
         state.isTransLoading = false;
       })

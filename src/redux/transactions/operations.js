@@ -1,13 +1,23 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 import { moneyGuardAPI, getTotalBalanceThunk } from "../auth/operations";
+import { parseISO, format } from "date-fns";
+
+// Функція для форматування дати
+const formatTransactionDate = (tx) => ({
+  ...tx,
+  date: format(parseISO(tx.date), "dd-MM-yyyy"),
+});
 
 export const fetchTransactions = createAsyncThunk(
   "transactions/fetchAll",
   async (_, thunkAPI) => {
     try {
       const { data } = await moneyGuardAPI.get("/transactions");
-      return data.data;
+
+      // Форматуємо дату у всіх транзакцій
+      const formattedTransactions = data.data.map(formatTransactionDate);
+      return formattedTransactions;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -20,7 +30,8 @@ export const addTransaction = createAsyncThunk(
     try {
       const { data } = await moneyGuardAPI.post("/transactions", body);
       thunkAPI.dispatch(getTotalBalanceThunk());
-      return data;
+
+      return formatTransactionDate(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -40,8 +51,8 @@ export const editTransaction = createAsyncThunk(
         sum,
       });
       thunkAPI.dispatch(getTotalBalanceThunk());
-      
-      return data;
+
+      return formatTransactionDate(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -71,20 +82,23 @@ export const copyTransaction = createAsyncThunk(
         `/transactions/${id}`
       );
       const original = originalTransaction.data;
+
       const transactionCopy = {
         date: original.date,
         type: original.type,
         category: original.category,
         comment: original.comment,
-        sum: original.sum,
+        sum: Number(original.sum),
       };
+
       const { data } = await moneyGuardAPI.post(
         "/transactions",
         transactionCopy
       );
-			thunkAPI.dispatch(getTotalBalanceThunk());
-			toast.success("Transaction successfully repeated!");
-      return data;
+      thunkAPI.dispatch(getTotalBalanceThunk());
+      toast.success("Transaction successfully repeated!");
+
+      return formatTransactionDate(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
