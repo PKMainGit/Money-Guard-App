@@ -14,7 +14,7 @@ const Chart = () => {
   const { expenseSummary } = useSelector(selectSummary) ?? 0;
 
   const categoryColors = {
-    "Main expenses": "#FFD700",
+    "Food": "#FFD700",
     Products: "#FFCCCB",
     Car: "#FFA07A",
     "Self care": "#D8BFD8",
@@ -22,7 +22,7 @@ const Chart = () => {
     "Household products": "#4682B4",
     Education: "#AFEEEE",
     Leisure: "#00FA9A",
-    "Other expenses": "#00CED1",
+    "Other": "#00CED1",
     Entertainment: "#E16E6E",
   };
 

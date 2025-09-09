@@ -15,12 +15,16 @@ const statsSlice = createSlice({
     builder
       .addCase(getTransSummary.fulfilled, (state, action) => {
         state.isStatisticsLoading = false;
+        const payload = action.payload.map((item) => ({
+          ...item,
+          total: Number(item.total || 0),
+        }));
 
-        const incomeItem = action.payload.find(
+        const incomeItem = payload.find(
           (item) => item.category === "Income" || !item.category
         );
 
-        const expenses = action.payload.filter(
+        const expenses = payload.filter(
           (item) => item.category && item.category !== "Income"
         );
 
@@ -31,7 +35,10 @@ const statsSlice = createSlice({
         };
       })
       .addCase(getCategories.fulfilled, (state, action) => {
-        state.categories = action.payload;
+        state.categories = action.payload.map((item) => ({
+          ...item,
+          total: Number(item.total || 0),
+        }));
       })
       .addMatcher(isAnyOf(getTransSummary.pending), (state) => {
         state.isStatisticsLoading = true;
