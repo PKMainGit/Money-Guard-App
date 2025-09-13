@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-import { moneyGuardAPI, getTotalBalanceThunk } from "../auth/operations";
+import { moneyGuardAPI } from "../auth/api";
+import {getTotalBalanceThunk} from '../auth/operations'
 import { parseISO, format } from "date-fns";
 
 // Функція для форматування дати

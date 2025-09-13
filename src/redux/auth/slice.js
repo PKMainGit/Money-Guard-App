@@ -8,7 +8,8 @@ import {
   editUserAvatar,
   getTotalBalanceThunk,
   resetPassword,
-  changePassword
+  changePassword,
+  updateTokenThunk,
 } from "./operations";
 
 const initialState = {
@@ -39,6 +40,9 @@ const authSlice = createSlice({
     },
     clearAvatarPreview: (state) => {
       state.preview = null;
+    },
+    setToken: (state, action) => {
+      state.token = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -135,5 +139,5 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const { updateBalance, setAvatarPreview, clearAvatarPreview } =
+export const { updateBalance, setAvatarPreview, clearAvatarPreview, setToken } =
   authSlice.actions;

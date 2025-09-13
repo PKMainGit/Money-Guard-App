@@ -1,19 +1,11 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-
-export const moneyGuardAPI = axios.create({
-  // baseURL: "https://server-money-guard-teamproject.onrender.com/",
-  baseURL: "http://localhost:3000/",
-  withCredentials: true,
-});
-
-export const setAuthHeader = (token) => {
-  moneyGuardAPI.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-export const resetAuthHeader = () => {
-  moneyGuardAPI.defaults.headers.common.Authorization = ``;
-};
+import { startLogoutTimer, clearLogoutTimer } from "../../utils/autoLogoutTimer";
+import {
+  moneyGuardAPI,
+  setAuthHeader,
+  resetAuthHeader,
+} from "./api";
 
 export const registerThunk = createAsyncThunk(
   "user/register",
@@ -39,7 +31,8 @@ export const loginThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await moneyGuardAPI.post("/auth/login", credentials);
-      setAuthHeader(data.data.accessToken);
+			setAuthHeader(data.data.accessToken);
+			startLogoutTimer(thunkAPI.dispatch, logoutThunk, 180000);
       toast.success("Login successful! Welcome back.");
       return data;
     } catch (error) {
@@ -52,7 +45,8 @@ export const loginThunk = createAsyncThunk(
 export const logoutThunk = createAsyncThunk(
   "user/logout",
   async (_, thunkAPI) => {
-    try {
+		try {
+			clearLogoutTimer();
       const state = thunkAPI.getState();
       const lastPath =
         state.router?.location?.pathname || window.location.pathname;
@@ -81,6 +75,13 @@ export const refreshUserThunk = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  }
+);
+
+export const updateTokenThunk = createAsyncThunk(
+  "auth/updateToken",
+  async (newToken) => {
+    return newToken;
   }
 );
 

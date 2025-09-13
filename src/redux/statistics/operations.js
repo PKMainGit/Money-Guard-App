@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { moneyGuardAPI, setAuthHeader } from "../auth/operations";
+import { moneyGuardAPI, setAuthHeader } from "../auth/api";
 
 export const getTransSummary = createAsyncThunk(
   "transactions/summary",
